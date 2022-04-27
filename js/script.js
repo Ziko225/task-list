@@ -9,13 +9,25 @@
             check: false,
         },
     ];
+    
+    const addNewTask = (newTaskContent) => {
+        tasks.push({
+            content: newTaskContent,
+        })
+
+        render();
+    };
+
+    const removeTask = (index) => {
+        tasks.splice(index, 1);
+        render();
+    }
 
     const render = () => {
         let htmlString = "";
 
         for (const task of tasks) {
             htmlString += `
-                
                 <li class="list__block">
                     <button class="list__buttonChecker ${task.check ? "list__buttonChecker--check" : ""} js-taskCheckButton">✓</button>
                         <span class="list__taskText ${task.check ? "list__taskText--check" : ""}">
@@ -28,25 +40,33 @@
         }
 
         document.querySelector(".js-taskList").innerHTML = htmlString
+
+        const removeButtons = document.querySelectorAll(".js-taskRemoveButton")
+
+        removeButtons.forEach((removeButton, index) => {
+            removeButton.addEventListener("click", () => {
+                removeTask(index)
+            });
+        });
     };
+
+    const onFormSumbit = (event) => {
+        event.preventDefault();
+
+        const newTaskContent = document.querySelector(".js-taskInput").value.trim();
+        if (newTaskContent === "") {
+            return;
+        }
+        addNewTask(newTaskContent)
+
+    };
+
     const init = () => {
         render();
 
         const form = document.querySelector(".js-form")
 
-        form.addEventListener("submit", (event) => {
-            event.preventDefault();
-
-            const newTaskContent = document.querySelector(".js-taskInput").value.trim();
-            if(newTaskContent === "") {
-                return;
-            }
-
-            tasks.push({
-                content: newTaskContent,
-            })
-            render();
-        })
+        form.addEventListener("submit", onFormSumbit);
     };
     init();
 };

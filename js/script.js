@@ -28,6 +28,24 @@
         render();
     }
 
+    const bindEvents = () => {
+        const removeButtons = document.querySelectorAll(".js-taskRemoveButton")
+
+        removeButtons.forEach((removeButton, index) => {
+            removeButton.addEventListener("click", () => {
+                removeTask(index);
+            });
+        });
+
+        const toggleCheckButtons = document.querySelectorAll(".js-buttonCheck")
+
+        toggleCheckButtons.forEach((toggleCheckButton, index) => {
+            toggleCheckButton.addEventListener("click", () => {
+                toggleTaskCheck(index);
+            });
+        });
+    }
+
     const render = () => {
         let htmlString = "";
 
@@ -46,21 +64,7 @@
 
         document.querySelector(".js-taskList").innerHTML = htmlString
 
-        const removeButtons = document.querySelectorAll(".js-taskRemoveButton")
-
-        removeButtons.forEach((removeButton, index) => {
-            removeButton.addEventListener("click", () => {
-                removeTask(index);
-            });
-        });
-
-        const toggleCheckButtons = document.querySelectorAll(".js-buttonCheck")
-
-        toggleCheckButtons.forEach((toggleCheckButton, index) => {
-            toggleCheckButton.addEventListener("click", () => {
-                toggleTaskCheck(index);
-            });
-        });
+        bindEvents();
     };
 
     const onFormSumbit = (event) => {

@@ -9,7 +9,7 @@
             check: false,
         },
     ];
-    
+
     const addNewTask = (newTaskContent) => {
         tasks.push({
             content: newTaskContent,
@@ -23,13 +23,18 @@
         render();
     }
 
+    const toggleTaskCheck = (taskIndex) => {
+        tasks[taskIndex].check = !tasks[taskIndex].check
+        render();
+    }
+
     const render = () => {
         let htmlString = "";
 
         for (const task of tasks) {
             htmlString += `
                 <li class="list__block">
-                    <button class="list__buttonChecker ${task.check ? "list__buttonChecker--check" : ""} js-taskCheckButton">✓</button>
+                    <button class="list__buttonChecker js-buttonCheck ${task.check ? "list__buttonChecker--check" : ""} js-taskCheckButton">✓</button>
                         <span class="list__taskText ${task.check ? "list__taskText--check" : ""}">
                             ${task.content}
                         </span>
@@ -45,7 +50,15 @@
 
         removeButtons.forEach((removeButton, index) => {
             removeButton.addEventListener("click", () => {
-                removeTask(index)
+                removeTask(index);
+            });
+        });
+
+        const toggleCheckButtons = document.querySelectorAll(".js-buttonCheck")
+
+        toggleCheckButtons.forEach((toggleCheckButton, index) => {
+            toggleCheckButton.addEventListener("click", () => {
+                toggleTaskCheck(index);
             });
         });
     };

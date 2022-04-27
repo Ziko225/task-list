@@ -56,7 +56,10 @@
     margin-left: 20px;
 }
 
-.list__element {
+.list__block {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
     font-weight: 500;
     border-bottom: 2px #333 solid;
     border-width: 1px;
@@ -65,38 +68,59 @@
     padding: 10px 0px;
 }
 
-.list__element {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-}
-
-.list__taskName {
+.list__taskText {
     flex-grow: 2;
     align-self: center;
+
+
 }
 
-.list__button {
+.list__taskText--check {
+    text-decoration: line-through
+}
+
+
+
+.list__buttonChecker {
     align-self: center;
     padding: -10px;
-}
-
-.list__button--checkTask {
     margin-right: 10px;
-    border-radius: 50px;
+    border-radius:50%;
+    background-color: #eee;
+    color: #eee;
+    border-width: 1px;
+    width: 30px;
+    height: 30px;
 }
 
-.list__button--remove {
-    margin-left:10px;
+.list__buttonChecker:hover {
+    background-color: rgb(0, 203, 0);
+}
+
+.list__buttonChecker:active {
+    background-color: rgb(0, 255, 0);
+}
+.list__buttonChecker--check {
+    background-color: green;
+}
+
+.list__buttonRemoveTask {
+    margin-left: 10px;
     padding: 0;
     background-color: white;
     border-style: none;
 }
-.Button__img{
+
+.buttonRemoveTask__img {
     background-color: red;
     border-radius: 10px;
     padding: 5px;
 }
+
+
+
+
+
 
 
 

@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
-    <script defer href="js/script.js"></script>
+    <script defer src="js/script.js"></script>
     <link href="css/style.css" rel="stylesheet">
     <link href="css/article.css" rel="stylesheet">
     <link href="/img/icon.png" rel="icon">
@@ -29,7 +29,7 @@
         <div class="article__element">
             <form class="form js-form">
                 <label class="label__input">
-                    <input class="form__input js-task" placeholder="Co jest do zrobienia?">
+                    <input class="form__input js-taskInput" required placeholder="Co jest do zrobienia?*">
                 </label>
                 <label class="label__button">
                     <button class="form__button">Dodaj zadanie</button>
@@ -39,24 +39,10 @@
         <div class="article__element article__element--column2">
             Lista zadań
         </div>
-
-
-
-        <div class="article__element js-taskList">
-            <ul class="list">
-                <li class="list__element">
-                    <button class="list__button list__button--checkTask js-taskCheckButton">✓</button><span class="list__taskName">
-                        Test 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit voluptatem totam eius neque ad nostrum, explicabo debitis sint officia ipsum nulla cupiditate quo possimus alias vitae et assumenda impedit laborum!
-                    </span><button class="list__button list__button--remove js-taskRemoveButton"><img class="Button__img" src="/img/remove.png" width="24px"></imb></button>
-                </li>
+        <div class="article__element">
+            <ul class="list js-taskList">
             </ul>
         </div>
-
-
-
-
-
-
     </article>
 </body>
 

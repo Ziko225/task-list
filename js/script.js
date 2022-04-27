@@ -1,13 +1,5 @@
 {
     const tasks = [
-        {
-            content: "jakis tekst",
-            check: true,
-        },
-        {
-            content: "jakis tekst l Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas recusandae delectus natus necessitatibus. Maiores reiciendis natus fugiat rem nesciunt optio voluptas, quam laudantium recusandae asperiores odit totam nemo eius pariatur! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit, sint pariatur. Odio, adipisci iste deserunt dolores perspiciatis modi consequatur labore vel ipsa? Maiores quos quia commodi ut, iure assumenda voluptatibus.",
-            check: false,
-        },
     ];
 
     const addNewTask = (newTaskContent) => {
@@ -39,7 +31,7 @@
                             ${task.content}
                         </span>
                     <button class="list__buttonRemoveTask js-taskRemoveButton"><img class="buttonRemoveTask__img"
-                    src="/img/remove.png" width="24px"></imb></button>
+                    src="./img/remove.png" width="24px"></imb></button>
                 </li>
             `;
         }
@@ -71,7 +63,6 @@
             return;
         }
         addNewTask(newTaskContent)
-
     };
 
     const init = () => {
@@ -81,5 +72,6 @@
 
         form.addEventListener("submit", onFormSumbit);
     };
+    
     init();
 };

@@ -1,0 +1,126 @@
+.article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    padding: 0px 30px;
+}
+
+.article__element {
+    font-weight: 1000;
+    margin: 0.8px;
+    padding: 10px 20px;
+    background-color: white;
+}
+
+.article__element--headerStyle {
+    background-color: #eee;
+    margin-bottom: -10px;
+    padding: 0px;
+}
+
+.article__element--column2 {
+    margin-top: 10px;
+}
+
+.article__element--modText {
+    padding: 0px 20px;
+}
+
+
+
+
+.form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.form__input {
+    height: 30px;
+    width: calc(100% - 7px);
+}
+
+.label__input {
+    flex-grow: 2;
+}
+
+.form__button {
+    height: 100%;
+    background-color: teal;
+    color: white;
+    border-style: none;
+}
+
+.label__button {
+    margin-left: 20px;
+}
+
+.list__element {
+    font-weight: 500;
+    border-bottom: 2px #333 solid;
+    border-width: 1px;
+    list-style: none;
+    margin-left: -40px;
+    padding: 10px 0px;
+}
+
+.list__element {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.list__taskName {
+    flex-grow: 2;
+    align-self: center;
+}
+
+.list__button {
+    align-self: center;
+    padding: -10px;
+}
+
+.list__button--checkTask {
+    margin-right: 10px;
+    border-radius: 50px;
+}
+
+.list__button--remove {
+    margin-left:10px;
+    padding: 0;
+    background-color: white;
+    border-style: none;
+}
+.Button__img{
+    background-color: red;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+
+
+@media (max-width:720px) {
+    .article {
+        padding: 10px;
+    }
+
+    .form {
+        display: flex;
+        width: auto;
+        flex-direction: column;
+        padding: 0px;
+        margin: 0px;
+
+    }
+
+    .label__button {
+        padding-top: 10px;
+        margin: 0px;
+    }
+
+    .form__button {
+        height: 30px;
+        width: 100%;
+    }
+}

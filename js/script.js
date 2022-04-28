@@ -48,10 +48,12 @@
         for (const task of tasks) {
             htmlString += `
                 <li class="list__block">
-                <button class="list__buttonChecker js-buttonCheck ${task.check ? "list__buttonChecker--check" : ""} js-taskCheckButton"></button><span class="list__task ${task.check ? "list__task--check" : ""}">
+                    <button class="list__buttonChecker js-buttonCheck ${task.check ? "list__buttonChecker--check" : ""} js-taskCheckButton">${task.check ? "✓" : ""}</button>
+                        <span class="list__task ${task.check ? "list__task--check" : ""}">
                             ${task.content}
                         </span>
-                    <button class="list__buttonRemoveTask js-taskRemoveButton"><img class="buttonRemoveTask__img"
+                    <button class="list__buttonRemoveTask js-taskRemoveButton">
+                    <img class="buttonRemoveTask__img"
                     src="./img/remove.png" width="24px"></imb></button>
                 </li>
             `;

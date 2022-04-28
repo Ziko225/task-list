@@ -1,29 +1,28 @@
-.article {
+.main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
-    padding: 0px 30px;
+    margin: 0 auto 100px auto;
+    max-width: 1000px;
+    width: 90%;
 }
 
-.article__element {
+.main__element {
     font-weight: 1000;
     margin: 0.8px;
     padding: 10px 20px;
     background-color: white;
 }
 
-.article__element--headerStyle {
+.main__element--headerStyle {
     background-color: #eee;
     margin-bottom: -10px;
-    padding: 0px;
 }
 
-.article__element--column2 {
+.main__element--column2 {
     margin-top: 10px;
 }
 
-.article__element--modText {
+.main__element--title {
     padding: 0px 20px;
 }
 
@@ -32,7 +31,6 @@
 
 .form {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
 }
 
@@ -66,51 +64,54 @@
 
 
 
+.list {
+    display: flex;
+    flex-direction: column-reverse;
+}
 
 .list__block {
     display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    font-weight: 500;
-    border-bottom: 2px #333 solid;
+    align-items: center;
+    font-weight: 400;
+    border-bottom: 2px #888 solid;
     border-width: 1px;
-    list-style: none;
-    margin-left: -40px;
-    padding: 10px 0px;
+    margin: 0px -40px;
+    padding: 10px 20px;
+    max-width: 100%;
+    word-break: break-word;
 }
 
-.list__taskText {
-    flex-grow: 1;
-    align-self: center;
-
+.list__task {
+    flex-grow: 2;
 }
 
-.list__taskText--check {
-    text-decoration: line-through
+.list__task--check {
+    text-decoration: line-through;
+    color: #999;
 }
 
 .list__buttonChecker {
-    align-self: center;
     margin-right: 10px;
     border-radius: 30px;
-    background-color: #eee;
-    color: #eee;
+    background-color: white;
     border-width: 1px;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     flex-shrink: 0;
 }
 
 .list__buttonChecker:hover {
-    background-color: rgb(0, 199, 0);
+    background-color: rgb(0, 206, 0);
+    transform: scale(1.225);
 }
 
 .list__buttonChecker:active {
-    background-color: rgb(0, 255, 0);
+    background-color: rgb(1, 129, 1);
 }
 
 .list__buttonChecker--check {
-    background-color: green;
+    background-color: rgb(0, 227, 0);
+    border-radius: 0px;
 }
 
 .list__buttonRemoveTask {
@@ -122,11 +123,11 @@
 
 .buttonRemoveTask__img {
     border-radius: 10px;
-    padding: 5px;
     filter: opacity(40%);
 }
 
 .buttonRemoveTask__img:hover {
+    transform: scale(1.225);
     filter: opacity(70%);
 }
 
@@ -139,7 +140,7 @@
 
 
 @media (max-width:720px) {
-    .article {
+    .main {
         padding: 10px;
     }
 
@@ -158,7 +159,8 @@
     }
 
     .form__button {
-        height: 30px;
+        height: 40px;
+        padding: 2px;
         width: 100%;
     }
 }

@@ -38,14 +38,17 @@
         });
     }
 
+    const formResetEvent = () => {
+        const resetForm = document.querySelector(".js-form").reset();
+    }
+
     const render = () => {
         let htmlString = "";
 
         for (const task of tasks) {
             htmlString += `
                 <li class="list__block">
-                    <button class="list__buttonChecker js-buttonCheck ${task.check ? "list__buttonChecker--check" : ""} js-taskCheckButton">✓</button>
-                        <span class="list__taskText ${task.check ? "list__taskText--check" : ""}">
+                <button class="list__buttonChecker js-buttonCheck ${task.check ? "list__buttonChecker--check" : ""} js-taskCheckButton"></button><span class="list__task ${task.check ? "list__task--check" : ""}">
                             ${task.content}
                         </span>
                     <button class="list__buttonRemoveTask js-taskRemoveButton"><img class="buttonRemoveTask__img"
@@ -54,7 +57,7 @@
             `;
         }
 
-        document.querySelector(".js-taskList").innerHTML = htmlString
+        document.querySelector(".js-tasks").innerHTML = htmlString
 
         bindEvents();
     };
@@ -66,7 +69,10 @@
         if (newTaskContent === "") {
             return;
         }
+
         addNewTask(newTaskContent)
+
+        formResetEvent();
     };
 
     const init = () => {
@@ -76,6 +82,7 @@
 
         form.addEventListener("submit", onFormSumbit);
     };
-    
+
     init();
+
 };

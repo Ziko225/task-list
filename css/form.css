@@ -1,0 +1,32 @@
+.form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form__input {
+    height: 30px;
+    width: calc(100% - 7px);
+}
+
+.label__input {
+    flex-grow: 2;
+}
+
+.form__button {
+    height: 100%;
+    background-color: teal;
+    color: white;
+    border-style: none;
+}
+
+.form__button:hover {
+    background-color: rgb(0, 162, 162);
+}
+
+.form__button:active {
+    background-color: rgb(0, 190, 190);
+}
+
+.label__button {
+    margin-left: 20px;
+}

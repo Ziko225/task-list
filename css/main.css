@@ -1,168 +1,21 @@
 .main {
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto 100px auto;
-    max-width: 1000px;
-    width: 90%;
+    max-width: 900px;
+    padding: 10px;
+    margin: 0 auto;
 }
 
-.main__element {
-    font-weight: 1000;
-    margin: 0.8px;
-    padding: 10px 20px;
+.section {
     background-color: white;
+    margin: 10px 0;
+
 }
 
-.main__element--headerStyle {
-    background-color: #eee;
-    margin-bottom: -10px;
+.section__header {
+    font-size: 20px;
+    padding: 20px;
+    margin: 0px;
+    border-bottom: 2px solid #eee;
 }
-
-.main__element--column2 {
-    margin-top: 10px;
-}
-
-.main__element--title {
-    padding: 0px 20px;
-}
-
-
-
-
-.form {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.form__input {
-    height: 30px;
-    width: calc(100% - 7px);
-}
-
-.label__input {
-    flex-grow: 2;
-}
-
-.form__button {
-    height: 100%;
-    background-color: teal;
-    color: white;
-    border-style: none;
-}
-
-.form__button:hover {
-    background-color: rgb(0, 162, 162);
-}
-
-.form__button:active {
-    background-color: rgb(0, 190, 190);
-}
-
-.label__button {
-    margin-left: 20px;
-}
-
-
-
-.list {
-    display: flex;
-    flex-direction: column-reverse;
-}
-
-.list__block {
-    display: flex;
-    align-items: center;
-    font-weight: 400;
-    border-bottom: 2px #888 solid;
-    border-width: 1px;
-    margin: 0px -40px;
-    padding: 10px 20px;
-    max-width: 100%;
-    word-break: break-word;
-}
-
-.list__task {
-    flex-grow: 2;
-}
-
-.list__task--check {
-    text-decoration: line-through;
-    color: #999;
-}
-
-.list__buttonChecker {
-    margin-right: 10px;
-    border-radius: 30px;
-    background-color: white;
-    border-width: 1px;
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-}
-
-.list__buttonChecker:hover {
-    background-color: rgb(0, 206, 0);
-    transform: scale(1.225);
-}
-
-.list__buttonChecker:active {
-    background-color: rgb(1, 129, 1);
-}
-
-.list__buttonChecker--check {
-    background-color: rgb(0, 227, 0);
-    border-radius: 0px;
-    color:white;
-    padding: 0;
-}
-
-.list__buttonRemoveTask {
-    height: auto;
-    padding: 0px;
-    background-color: rgb(255, 255, 255);
-    border-style: none;
-}
-
-.buttonRemoveTask__img {
-    border-radius: 10px;
-    filter: opacity(40%);
-}
-
-.buttonRemoveTask__img:hover {
-    transform: scale(1.225);
-    filter: opacity(70%);
-}
-
-.buttonRemoveTask__img:active {
-    filter: opacity(100%);
-}
-
-
-
-
-
-@media (max-width:720px) {
-    .main {
-        padding: 10px;
-    }
-
-    .form {
-        display: flex;
-        width: auto;
-        flex-direction: column;
-        padding: 0px;
-        margin: 0px;
-
-    }
-
-    .label__button {
-        padding-top: 10px;
-        margin: 0px;
-    }
-
-    .form__button {
-        height: 40px;
-        padding: 2px;
-        width: 100%;
-    }
+.section__body {
+    padding: 15px;
 }

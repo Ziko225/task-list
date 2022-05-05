@@ -1,21 +1,5 @@
 .main {
     max-width: 900px;
-    padding: 15px;
+    padding: 10px;
     margin: auto;
-}
-
-.section {
-    background-color: white;
-    margin: 10px 0;
-
-}
-
-.section__header {
-    font-size: 20px;
-    padding: 20px;
-    margin: 0px;
-    border-bottom: 2px solid #eee;
-}
-.section__body {
-    padding: 15px;
 }

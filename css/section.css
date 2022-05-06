@@ -30,14 +30,15 @@
     border-style: none;
     font-size: 18px;
     margin: 0px 10px;
+    transition: 0.3s;
 }
 
-.header__button:hover{
-    color:rgb(0, 169, 169)
+.header__button:hover {
+    color: rgb(0, 169, 169)
 }
 
-.header__button:active{
-    color:rgb(0, 189, 189)
+.header__button:active {
+    color: rgb(0, 189, 189)
 }
 
 @media (max-width:700px) {

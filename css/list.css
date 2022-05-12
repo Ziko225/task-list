@@ -47,3 +47,7 @@
 .list__button--remover:active {
     background-color: rgb(255, 0, 0);
 }
+
+.list__block--hiden {
+    display: none;
+}

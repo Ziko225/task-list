@@ -1,12 +1,13 @@
 {
-    const tasks = [
-    ];
+    var tasks = [];
+
+    let hideDoneTask = false
 
     const addNewTask = (newTaskContent) => {
-        tasks.push({ //remove
-            content: newTaskContent,
-        })
-
+        tasks = [
+            ...tasks,
+            { content: newTaskContent, },
+        ];
         render();
     };
 
@@ -42,12 +43,28 @@
         const resetForm = document.querySelector(".js-form").reset();
     }
 
-    const render = () => {
-        let htmlString = "";
+    const formFocusEvent = () => {
+        const focusForm = document.querySelector(".js-taskInput").focus();
+    }
+
+    const renderButtons = () => {
+        const taskElement = document.querySelector(".list__block")
+
+        let htmlString1 = "";
+        htmlString1 += `
+                <h2 class="section__header--titles">Lista zadań</h2>
+                <button class="header__button js-hideTask ${taskElement ? "" : "list__block--hiden"}">Ukryj ukończone</button>
+                <button ${tasks.check === true ? "disable" : ""} class="header__button js-endTask ${taskElement ? "" : "list__block--hiden"}"> Ukończ wszystkie</button>
+            `;
+        document.querySelector(".js-headerButton").innerHTML = htmlString1
+    }
+
+    const renderTask = () => {
+        let htmlTask = "";
 
         for (const task of tasks) {
-            htmlString += `
-                <li class="list__block">
+            htmlTask += `
+                <li class="list__block ${task.check && hideDoneTask ? "list__block--hiden" : ""}">
                     <button class="list__button list__button--checker js-buttonCheck js-taskCheckButton">${task.check ? "✓" : ""}</button>
                         <span class="list__task ${task.check ? "list__task--check" : ""}">
                             ${task.content}
@@ -57,9 +74,16 @@
             `;
         }
 
-        document.querySelector(".js-tasks").innerHTML = htmlString
+        document.querySelector(".js-tasks").innerHTML = htmlTask
+    }
+
+    const render = () => {
+        renderTask()
+        renderButtons()
+
 
         bindEvents();
+        renderButtons();
     };
 
     const onFormSumbit = (event) => {
@@ -73,16 +97,16 @@
         addNewTask(newTaskContent)
 
         formResetEvent();
+
     };
 
     const init = () => {
         render();
-
         const form = document.querySelector(".js-form")
 
         form.addEventListener("submit", onFormSumbit);
     };
 
+    formFocusEvent();
     init();
-
 };

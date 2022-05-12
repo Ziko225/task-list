@@ -32,6 +32,15 @@
     margin: 0px 10px;
     transition: 0.3s;
 }
+.header__button:disabled{
+    color:#bbb;
+}
+.header__button:disabled:hover{
+    color:#bbb;
+}
+.header__button:disabled:active{
+    color:#bbb;
+}
 
 .header__button:hover {
     color: rgb(0, 169, 169)

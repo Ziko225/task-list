@@ -1,24 +1,58 @@
 {
     var tasks = [];
 
-    let hideDoneTask = false
+    let hideCheckTasks = false
 
     const addNewTask = (newTaskContent) => {
         tasks = [
             ...tasks,
-            { content: newTaskContent, },
+            {
+                content: newTaskContent,
+            },
         ];
         render();
     };
 
     const removeTask = (index) => {
-        tasks.splice(index, 1); //Remove
+        tasks = [
+            ...tasks.slice(0, index),
+            ...tasks.slice(index + 1),
+        ];
         render();
     }
 
-    const toggleTaskCheck = (taskIndex) => {
-        tasks[taskIndex].check = !tasks[taskIndex].check
+    const tasksHidder = (HideTaskButton) => {
+        HideTaskButton.addEventListener("click", () => {
+            hideCheckTasks = !hideCheckTasks
+            render();
+        })
+    }
+
+    const tasksChecker = () => {
+        const checkAllTasks = document.querySelector(".js-checkAllTasks")
+
+        checkAllTasks.addEventListener("click", () => {
+            tasks = tasks.map((task) => ({
+                ...task,
+                check: true,
+            }))
+            render();
+        });
+    };
+
+    const toggleTaskCheck = (index) => {
+        tasks = [
+            ...tasks.slice(0, index),
+            { ...tasks[index], check: !tasks[index].check },
+            ...tasks.slice(index + 1),
+        ];
         render();
+    }
+
+    const bindHidderButton = () => {
+        const HideTaskButton = document.querySelector(".js-hideTask")
+
+        if (HideTaskButton) HideTaskButton.addEventListener("click", (tasksHidder(HideTaskButton)))
     }
 
     const bindEvents = () => {
@@ -37,6 +71,7 @@
                 toggleTaskCheck(index);
             });
         });
+
     }
 
     const formResetEvent = () => {
@@ -49,12 +84,13 @@
 
     const renderButtons = () => {
         const taskElement = document.querySelector(".list__block")
+        const isEveryTaskDone = tasks.every(({ check }) => check)
 
         let htmlString1 = "";
         htmlString1 += `
                 <h2 class="section__header--titles">Lista zadań</h2>
-                <button class="header__button js-hideTask ${taskElement ? "" : "list__block--hiden"}">Ukryj ukończone</button>
-                <button ${tasks.check === true ? "disable" : ""} class="header__button js-endTask ${taskElement ? "" : "list__block--hiden"}"> Ukończ wszystkie</button>
+                <button class="header__button js-hideTask ${taskElement ? "" : "list__block--hidden"}">${hideCheckTasks ? "Pokaż" : "Ukryj"} ukończone</button>
+                <button ${isEveryTaskDone === true ? "disabled" : ""} class="header__button js-checkAllTasks ${taskElement ? "" : "list__block--hidden"}"> Ukończ wszystkie</button>
             `;
         document.querySelector(".js-headerButton").innerHTML = htmlString1
     }
@@ -64,7 +100,7 @@
 
         for (const task of tasks) {
             htmlTask += `
-                <li class="list__block ${task.check && hideDoneTask ? "list__block--hiden" : ""}">
+                <li class="list__block ${task.check && hideCheckTasks ? "list__block--hidden" : ""}">
                     <button class="list__button list__button--checker js-buttonCheck js-taskCheckButton">${task.check ? "✓" : ""}</button>
                         <span class="list__task ${task.check ? "list__task--check" : ""}">
                             ${task.content}
@@ -78,12 +114,12 @@
     }
 
     const render = () => {
-        renderTask()
-        renderButtons()
-
+        renderTask();
+        renderButtons();
 
         bindEvents();
         renderButtons();
+        bindHidderButton();
     };
 
     const onFormSumbit = (event) => {
@@ -95,9 +131,9 @@
         }
 
         addNewTask(newTaskContent)
-
         formResetEvent();
-
+        formFocusEvent();
+        tasksChecker();
     };
 
     const init = () => {
@@ -105,8 +141,8 @@
         const form = document.querySelector(".js-form")
 
         form.addEventListener("submit", onFormSumbit);
+        formFocusEvent();
     };
 
-    formFocusEvent();
     init();
 };

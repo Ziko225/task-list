@@ -28,9 +28,7 @@
         })
     }
 
-    const tasksChecker = () => {
-        const checkAllTasks = document.querySelector(".js-checkAllTasks")
-
+    const tasksChecker = (checkAllTasks) => {
         checkAllTasks.addEventListener("click", () => {
             tasks = tasks.map((task) => ({
                 ...task,
@@ -49,10 +47,13 @@
         render();
     }
 
-    const bindHidderButton = () => {
-        const HideTaskButton = document.querySelector(".js-hideTask")
+    const bindButtons = () => {
 
-        if (HideTaskButton) HideTaskButton.addEventListener("click", (tasksHidder(HideTaskButton)))
+        const checkAllTasks = document.querySelector(".js-checkAllTasks")
+        if (checkAllTasks) checkAllTasks.addEventListener("click", (tasksChecker(checkAllTasks)));
+
+        const HideTaskButton = document.querySelector(".js-hideTask")
+        if (HideTaskButton) HideTaskButton.addEventListener("click", (tasksHidder(HideTaskButton)));
     }
 
     const bindEvents = () => {
@@ -119,7 +120,7 @@
 
         bindEvents();
         renderButtons();
-        bindHidderButton();
+        bindButtons();
     };
 
     const onFormSumbit = (event) => {
@@ -133,7 +134,6 @@
         addNewTask(newTaskContent)
         formResetEvent();
         formFocusEvent();
-        tasksChecker();
     };
 
     const init = () => {

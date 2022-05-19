@@ -87,13 +87,13 @@
         const taskElement = document.querySelector(".list__block")
         const isEveryTaskDone = tasks.every(({ check }) => check)
 
-        let htmlString1 = "";
-        htmlString1 += `
+        let htmlHeaderButtons = "";
+        htmlHeaderButtons += `
                 <h2 class="section__header--titles">Lista zadań</h2>
                 <button class="header__button js-hideTask ${taskElement ? "" : "list__block--hidden"}">${hideCheckTasks ? "Pokaż" : "Ukryj"} ukończone</button>
                 <button ${isEveryTaskDone === true ? "disabled" : ""} class="header__button js-checkAllTasks ${taskElement ? "" : "list__block--hidden"}"> Ukończ wszystkie</button>
             `;
-        document.querySelector(".js-headerButton").innerHTML = htmlString1
+        document.querySelector(".js-headerButton").innerHTML = htmlHeaderButtons
     }
 
     const renderTask = () => {
